@@ -17,12 +17,13 @@ Project team GoLee / ccit2020
 
 * * *
 ## Project 
-### -모바일 악성 URL 판단 및 분석 어플 개발
-#### -Malicious URL Detect and Analysis Application in Android 
-#### Team : GeLee
+### - 모바일 악성 URL 판단 및 분석 어플 개발
+#### - Malicious URL Detect and Analysis Application in Android 
+#### - Team : GeLee
 
 
-#### <Progress>
+* * *
+#### Progress
 ##### 1 Week.. 
 ||2020-04-27|2020-04-28|2020-04-29|2020-04-30|2020-05-01|
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
