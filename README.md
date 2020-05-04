@@ -32,4 +32,4 @@ Project team GoLee / ccit2020
 ##### 2 Week.. 
 ||2020-05-04|2020-05-05|2020-05-06|2020-05-07|2020-05-08|
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
-|PROGRESS|[#5](https://edudeveloper.tistory.com/86)|||||
+|PROGRESS|[#5](https://edudeveloper.tistory.com/86)|*holiday*||||
