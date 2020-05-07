@@ -1,13 +1,19 @@
 from pysafebrowsing import SafeBrowsing
-s = SafeBrowsing('키값보호 ㅎㅎ ')
+
+# Api 연동
+s = SafeBrowsing('key_value')
 r = s.lookup_urls(['http://malware.testing.google.test/testing/malware/'])
 r = r['http://malware.testing.google.test/testing/malware/']
 
+# threatslist 인덱스를 위험 값 에 맞춰서 배열 선언
 threatslist = ['THREAT_TYPE_UNSPECIFIED', 'UNWANTED_SOFTWARE',
                'POTENTIALLY_HARMFUL_APPLICATION', 'SOCIAL_ENGINEERING', 'MALWARE']
 
+# 플랫폼은 겹치는 수가 많으므로 딕셔너리로 선언
 platforms = {'PLATFORM_TYPE_UNSPECIFIED': 1, 'WINDOWS': 2, 'LINUX': 2, 'ANDROID': 2,
              'OSX': 2, 'IOS': 2, 'ANY_PLATFORM': 3,  'ALL_PLATFORMS': 4, 'CHROME': 2}
+
+# 값이 나오면 위험 값에 따라 점수를 매겨줌
 
 
 def riskrangemanagemnet():
@@ -29,6 +35,7 @@ def riskrangemanagemnet():
     print(riskDecision(riskrange))
 
 
+# 범위에 따라 위험정도를 판단
 def riskDecision(a):
     if a == 0:
         return 'SAFE'
