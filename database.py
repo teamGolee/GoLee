@@ -1,18 +1,19 @@
-import pymysql 
+import pymysql
 import os
+
 
 class Database():
 
     def __init__(self):
-            self.db=pymysql.connect(
-                host='localhost',
-                user='USERNAME',
-                password='PASSWORD',
-                db='DATABASE',
-                charset='utf8',
-                autocommit=True,
-                cursorclass=pymysql.cursors.DictCursor)
-            self.cursor = self.db.cursor()
+        self.db = pymysql.connect(
+            host='localhost',
+            user='root',
+            password='password',
+            db='golee',
+            charset='utf8',
+            autocommit=True,
+            cursorclass=pymysql.cursors.DictCursor)
+        self.cursor = self.db.cursor()
 
     def __del__(self):
         self.db.close()

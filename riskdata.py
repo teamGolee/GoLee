@@ -1,10 +1,10 @@
 from pysafebrowsing import SafeBrowsing
 
 # Api 연동
-s = SafeBrowsing('key_value')
+s = SafeBrowsing('AIzaSyChXrA-2MJii7NyTDm8oGIJUN_iCOzAdQM')
 # Data 입력 format
-r = s.lookup_urls(['http://malware.testing.google.test/testing/malware/'])
-r = r['http://malware.testing.google.test/testing/malware/']
+#r = s.lookup_urls(['http://malware.testing.google.test/testing/malware/'])
+#r = r['http://malware.testing.google.test/testing/malware/']
 
 # threatslist 인덱스를 위험 값 에 맞춰서 배열 선언
 threatslist = ['THREAT_TYPE_UNSPECIFIED', 'UNWANTED_SOFTWARE',
@@ -20,7 +20,7 @@ platforms = {'PLATFORM_TYPE_UNSPECIFIED': 1, 'WINDOWS': 2, 'LINUX': 2, 'ANDROID'
 #
 
 
-def riskControl():
+def riskControl(r):
     riskrange = 0
     if r['malicious'] == False:
         riskrange = 0
@@ -35,7 +35,7 @@ def riskControl():
         if r2[0] in threatslist:
             riskrange += threatslist.index(r2[0])
     print(riskDecide(riskrange))
-
+    return riskDecide(riskrange)
 
 # 범위에 따라 위험정도를 판단
 def riskDecide(a):
@@ -49,5 +49,3 @@ def riskDecide(a):
         return 'super danger'
 
 
-if __name__ == "__main__":
-    riskControl()
