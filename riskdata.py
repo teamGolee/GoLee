@@ -2,7 +2,7 @@ from pysafebrowsing import SafeBrowsing
 
 # Api 연동
 s = SafeBrowsing('key_value')
-# Data 입력 포멧
+# Data 입력 format
 r = s.lookup_urls(['http://malware.testing.google.test/testing/malware/'])
 r = r['http://malware.testing.google.test/testing/malware/']
 
