@@ -2,9 +2,8 @@ from pysafebrowsing import SafeBrowsing
 
 # Api 연동
 s = SafeBrowsing('key_value')
-#Data 입력 format 
+# Data 입력 포멧
 r = s.lookup_urls(['http://malware.testing.google.test/testing/malware/'])
-print(type(['http://malware.testing.google.test/testing/malware/']))
 r = r['http://malware.testing.google.test/testing/malware/']
 
 # threatslist 인덱스를 위험 값 에 맞춰서 배열 선언
@@ -15,11 +14,12 @@ threatslist = ['THREAT_TYPE_UNSPECIFIED', 'UNWANTED_SOFTWARE',
 platforms = {'PLATFORM_TYPE_UNSPECIFIED': 1, 'WINDOWS': 2, 'LINUX': 2, 'ANDROID': 2,
              'OSX': 2, 'IOS': 2, 'ANY_PLATFORM': 3,  'ALL_PLATFORMS': 4, 'CHROME': 2}
 
+#
+# 위험 정보 관리 로직
+# 데이터 입력포멧 작업
+#
 
-#
-##위험 정보 관리 로직 
-##데이터 입력포멧 작업
-#
+
 def riskControl():
     riskrange = 0
     if r['malicious'] == False:
