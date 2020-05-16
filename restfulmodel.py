@@ -25,7 +25,6 @@ class RestfulModelling(Database):
         return result
 
     # Post 요청시 로직
-
     def postWork(self, url):
         sql = "INSERT INTO url_repository(url,url_status) "
         sql += "values({url} , {url_status} )".format(

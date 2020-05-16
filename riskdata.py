@@ -4,14 +4,14 @@ from pysafebrowsing import SafeBrowsing
 # url 요청을 받아서 GSB 형태 포멧에 따라 형태를 변환시켜줌
 def riskControl(url):
 
-    s = SafeBrowsing('AIzaSyChXrA-2MJii7NyTDm8oGIJUN_iCOzAdQM')
+    s = SafeBrowsing('GSBKEY')
     url = url['url']
     r = s.lookup_urls([url])
     r = r[url]
-    #threatlist 에 따른 데이터 형태 정렬 (인덱스 위치가 해당 위험정도임)
+    # threatlist 에 따른 데이터 형태 정렬 (인덱스 위치가 해당 위험정도임)
     threatslist = ['THREAT_TYPE_UNSPECIFIED', 'UNWANTED_SOFTWARE',
                    'POTENTIALLY_HARMFUL_APPLICATION', 'SOCIAL_ENGINEERING', 'MALWARE']
-    #platform 에 따른 데이터 형태 정렬 (중복값이 많으므로 딕셔너리로 선언 )
+    # platform 에 따른 데이터 형태 정렬 (중복값이 많으므로 딕셔너리로 선언 )
     platforms = {'PLATFORM_TYPE_UNSPECIFIED': 1, 'WINDOWS': 2, 'LINUX': 2, 'ANDROID': 2,
                  'OSX': 2, 'IOS': 2, 'ANY_PLATFORM': 3,  'ALL_PLATFORMS': 4, 'CHROME': 2}
     riskrange = 0
@@ -27,7 +27,7 @@ def riskControl(url):
         r2 = r['threats']
         if r2[0] in threatslist:
             riskrange += threatslist.index(r2[0])
-    
+
     return str(riskDecide(riskrange))
 
 
