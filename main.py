@@ -18,11 +18,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    print(render_template('index.html'))
 
     return render_template('index.html')
 
-## Post 요청 
+# Post 요청
 @app.route("/post", methods=['POST'])
 def post():
     db = RestfulModelling()
@@ -38,4 +37,5 @@ def post():
 
 
 if __name__ == "__main__":
+    # 현제 로컬에서 작업중이므로 5000 , 포트는 유동적변경
     app.run(host="0.0.0.0", debug=True, port=5000)
