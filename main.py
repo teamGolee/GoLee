@@ -1,20 +1,22 @@
-import sys
 import json
 import logging
+import os
+import sys
 import time
 import urllib
-import os
 
 from flask import Flask
 from flask import redirect
+from flask import render_template
 from flask import request
 from flask import url_for
-from flask import render_template
-from pysafebrowsing import SafeBrowsing
-from urllib import parse
-from restfulmodel import RestfulModelling
-app = Flask(__name__)
 
+from pysafebrowsing import SafeBrowsing
+from restfulmodel import RestfulModelling
+from urllib import parse
+
+
+app = Flask(__name__)
 
 @app.route("/")
 def index():
@@ -37,5 +39,4 @@ def post():
 
 
 if __name__ == "__main__":
-    # 현제 로컬에서 작업중이므로 5000 , 포트는 유동적변경
     app.run(host="0.0.0.0", debug=True, port=5000)
