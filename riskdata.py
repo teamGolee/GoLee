@@ -1,22 +1,19 @@
 from pysafebrowsing import SafeBrowsing
 
-# Api 연동
-s = SafeBrowsing('key_value')
-r = s.lookup_urls(['http://malware.testing.google.test/testing/malware/'])
-r = r['http://malware.testing.google.test/testing/malware/']
 
-# threatslist 인덱스를 위험 값 에 맞춰서 배열 선언
-threatslist = ['THREAT_TYPE_UNSPECIFIED', 'UNWANTED_SOFTWARE',
-               'POTENTIALLY_HARMFUL_APPLICATION', 'SOCIAL_ENGINEERING', 'MALWARE']
+# url 요청을 받아서 GSB 형태 포멧에 따라 형태를 변환시켜줌
+def riskControl(url):
 
-# 플랫폼은 겹치는 수가 많으므로 딕셔너리로 선언
-platforms = {'PLATFORM_TYPE_UNSPECIFIED': 1, 'WINDOWS': 2, 'LINUX': 2, 'ANDROID': 2,
-             'OSX': 2, 'IOS': 2, 'ANY_PLATFORM': 3,  'ALL_PLATFORMS': 4, 'CHROME': 2}
-
-# 값이 나오면 위험 값에 따라 점수를 매겨줌
-
-
-def riskrangemanagemnet():
+    s = SafeBrowsing('GSBKEY')
+    url = url['url']
+    r = s.lookup_urls([url])
+    r = r[url]
+    # threatlist 에 따른 데이터 형태 정렬 (인덱스 위치가 해당 위험정도임)
+    threatslist = ['THREAT_TYPE_UNSPECIFIED', 'UNWANTED_SOFTWARE',
+                   'POTENTIALLY_HARMFUL_APPLICATION', 'SOCIAL_ENGINEERING', 'MALWARE']
+    # platform 에 따른 데이터 형태 정렬 (중복값이 많으므로 딕셔너리로 선언 )
+    platforms = {'PLATFORM_TYPE_UNSPECIFIED': 1, 'WINDOWS': 2, 'LINUX': 2, 'ANDROID': 2,
+                 'OSX': 2, 'IOS': 2, 'ANY_PLATFORM': 3,  'ALL_PLATFORMS': 4, 'CHROME': 2}
     riskrange = 0
     if r['malicious'] == False:
         riskrange = 0
@@ -27,16 +24,15 @@ def riskrangemanagemnet():
         strplatforms = strplatforms.replace("']", '')
         if platforms[strplatforms] != 0:
             riskrange += platforms[strplatforms]
-
         r2 = r['threats']
         if r2[0] in threatslist:
-
             riskrange += threatslist.index(r2[0])
-    print(riskDecision(riskrange))
+
+    return str(riskDecide(riskrange))
 
 
 # 범위에 따라 위험정도를 판단
-def riskDecision(a):
+def riskDecide(a):
     if a == 0:
         return 'SAFE'
     elif 7 <= a < 9:
@@ -45,7 +41,3 @@ def riskDecision(a):
         return "risk "
     elif 12 <= a <= 14:
         return 'super danger'
-
-
-if __name__ == "__main__":
-    riskrangemanagemnet()
