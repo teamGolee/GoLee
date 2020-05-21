@@ -1,6 +1,7 @@
 import json
-from database import Database
 import riskdata
+
+from database import Database
 
 
 class RestfulModelling(Database):
