@@ -8,6 +8,7 @@ def controlrisk(url):
     url = url['url']
     r = s.lookup_urls([url])
     r = r[url]
+
     # threatlist 에 따른 데이터 형태 정렬 (인덱스 위치가 해당 위험정도임)
     threatslist = ['THREAT_TYPE_UNSPECIFIED', 
 		   'UNWANTED_SOFTWARE',
@@ -45,6 +46,7 @@ def controlrisk(url):
 
 # 범위에 따라 위험정도를 판단
 def decide_risk(a):
+
     if a == 0:
         return 'SAFE'
     elif 7 <= a < 9:

@@ -4,10 +4,12 @@ import riskdata
 from database import Database
 
 
+#
 class RestfulModelling(Database):
 
     # get 요청시 로직
     def getWork(self, url):
+
         url = url['url']
         sql = "SELECT url_no,url,url_status "
         sql += "FROM url_repository "
@@ -25,8 +27,10 @@ class RestfulModelling(Database):
 
         return result
 
+
     # Post 요청시 로직
     def postWork(self, url):
+
         sql = "INSERT INTO url_repository(url,url_status) "
         sql += "values({url} , {url_status} )".format(
             url=json.dumps(url.get("url", "")),
@@ -41,3 +45,4 @@ class RestfulModelling(Database):
             result = {"PostWork Error": "{}".format(e)}
 
         return result
+
