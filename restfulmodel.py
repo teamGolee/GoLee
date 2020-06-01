@@ -11,7 +11,7 @@ class RestfulModelling(Database):
     def getWork(self, url):
 
         url = url['url']
-        sql = "SELECT url_no,url,url_status "
+        sql = "SELECT url_no,url,url_status,title,insert_time,update_time "
         sql += "FROM url_repository "
         sql += "WHERE url='{}';".format(url)
         result = {}
@@ -27,15 +27,15 @@ class RestfulModelling(Database):
 
         return result
 
-
     # Post 요청시 로직
     def postWork(self, url):
 
-        sql = "INSERT INTO url_repository(url,url_status) "
-        sql += "values({url} , {url_status} )".format(
+        sql = "INSERT INTO url_repository(url,url_status,title) "
+        sql += "values({url} , {url_status} , {title} )".format(
             url=json.dumps(url.get("url", "")),
             # riskdata.riskControl 을 가져와서 위험정도를 설정함.
-            url_status=json.dumps(riskdata.riskControl(url))
+            url_status=json.dumps(riskdata.controlrisk(url)),
+            title=json.dumps(riskdata.decide_title())
         )
         result = None
         try:
@@ -46,3 +46,20 @@ class RestfulModelling(Database):
 
         return result
 
+    # 업데이트 로직 
+    def updateWork(self, time, url):
+        sql = "UPDATE url_repository SET "
+        sql += " update_time = '{}' , ".format(time)
+        sql += " url_status = '{}' , ".format(
+            json.dumps(riskdata.controlrisk(url)))
+        sql += " title = '{}' , ".format(
+            riskdata.decide_title())
+
+        result = None
+        try:
+            self.cursor.execute(sql)
+            self.db.commit()
+        except Exception as e:
+            result = {"UpdateWork Error": "{}".format(e)}
+
+        return result
