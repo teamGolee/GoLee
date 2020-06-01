@@ -33,7 +33,6 @@ class RestfulModelling(Database):
         sql = "INSERT INTO url_repository(url,url_status,title) "
         sql += "values({url} , {url_status} , {title} )".format(
             url=json.dumps(url.get("url", "")),
-            # riskdata.riskControl 을 가져와서 위험정도를 설정함.
             url_status=json.dumps(riskdata.controlrisk(url)),
             title=json.dumps(riskdata.decide_title())
         )
