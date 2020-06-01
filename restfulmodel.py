@@ -53,7 +53,6 @@ class RestfulModelling(Database):
             json.dumps(riskdata.controlrisk(url)))
         sql += " title = '{}' , ".format(
             riskdata.decide_title())
-
         result = None
         try:
             self.cursor.execute(sql)
