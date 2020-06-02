@@ -4,7 +4,7 @@ from pysafebrowsing import SafeBrowsing
 # url 요청을 받아서 GSB 형태 포멧에 따라 형태를 변환시켜줌
 def controlrisk(url):
 
-    s = SafeBrowsing('GSBKEY')
+    s = SafeBrowsing('AIzaSyChXrA-2MJii7NyTDm8oGIJUN_iCOzAdQM')
     url = url['url']
     r = s.lookup_urls([url])
     r = r[url]
