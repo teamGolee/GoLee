@@ -4,6 +4,5 @@ CREATE TABLE  url_repository (
     title TEXT NULL,
     insert_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     update_time DATETIME NULL, 
-    url_status VARCHAR(6) NULL,
-    url_comment VARCHAR(500) NULL
+    url_status VARCHAR(6) NULL
 )  DEFAULT CHARACTER SET utf8 COLLATE UTF8_GENERAL_CI;
