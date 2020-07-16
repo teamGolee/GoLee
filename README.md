@@ -4,6 +4,13 @@ Project team GoLee / ccit2020
 #### Made by 
 [고준성](https://github.com/Kogoon), [이재현](https://github.com/JaeHyunL)
 
+* * *
+## Project 
+### - 모바일 악성 URL 판단 및 분석 어플 개발
+#### - Malicious URL Detect and Analysis Application in Android 
+#### - Team : GoLee
+
+<!--
 #### *DailyScrum*
 * 한 일: ...
 * 할 일: ...
@@ -15,11 +22,6 @@ Project team GoLee / ccit2020
 > 3. (ccit)Slack 이용해서 보고 및 피드백 
 
 
-* * *
-## Project 
-### - 모바일 악성 URL 판단 및 분석 어플 개발
-#### - Malicious URL Detect and Analysis Application in Android 
-#### - Team : GoLee
 
 
 * * *
@@ -33,3 +35,4 @@ Project team GoLee / ccit2020
 ||2020-05-04|2020-05-05|2020-05-06|2020-05-07|2020-05-08|2020-05-09|   
 |:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
 |PROGRESS|[#5](https://edudeveloper.tistory.com/86)|*holiday*|[#6](https://edudeveloper.tistory.com/87)|[#7](https://edudeveloper.tistory.com/89)|[#8](https://edudeveloper.tistory.com/91)|[#9](https://edudeveloper.tistory.com/92)|
+-->
